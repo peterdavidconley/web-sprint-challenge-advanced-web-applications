@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Login = () => {
+const initialCredentials = {
+    username: '',
+    password: '',
+}
+
+const Login = (props) => {
+    
+    const [ credentials, setCredentials ] = useState(initialCredentials)
+
+    const handleChange = e => {
+
+    }
+
+    const handleSubmit = e => {
+
+    }
+
     
     return(<ComponentContainer>
         <ModalContainer>
@@ -9,10 +25,18 @@ const Login = () => {
             <h2>Please enter your account information.</h2>
             <form>
                 <label>Username:
-                    <input type='text' placeholder='Enter a username'/>
+                    <input 
+                    type='text' 
+                    placeholder='Enter a username'
+                    id='username'
+                    />
                 </label>
                 <label>Password:
-                    <input type='text' placeholder='Enter a password'/>
+                    <input 
+                    type='text' 
+                    placeholder='Enter a password'
+                    id='password'
+                    />
                 </label>
             </form>
         </ModalContainer>
