@@ -13,12 +13,9 @@ const View = (props) => {
         setArticles(articles.filter( article => article.id !== del_article))
     }
 
-    console.log(articles)
-
     const handleDelete = (id) => {
         axios.delete(`http://localhost:5000/api/articles/:${id}`)
         .then(resp => {
-            console.log(resp)
             deleteArticle(id)
         })
         .catch(err => {
