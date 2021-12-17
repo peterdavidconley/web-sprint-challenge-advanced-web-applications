@@ -25,7 +25,10 @@ const Login = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        axios.post(`http://localhost:5000/api/login`, { username: 'Lambda', password: 'School' })
+        axios.post(`http://localhost:5000/api/login`, 
+        //{ username: 'Lambda', password: 'School' }
+        credentials
+        )
         .then(resp => {
             console.log(resp.data)
             const { role, token, username } = resp.data

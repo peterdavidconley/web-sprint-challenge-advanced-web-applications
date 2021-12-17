@@ -106,10 +106,10 @@ In this project, you will demonstrate your mastery of these skills by creating *
 * It is better to submit a challenge that meets MVP than one that attempts too much and does not.
 
 ## Submission format
-* [ ] Submit via Codegrade by commiting and pushing any new changes to **your main branch.**
-* [ ] Check Codegrade before the deadline to compare its results against your local tests.
-* [ ] Check Codegrade on the days following the Sprint Challenge for reviewer feedback. For more information on how to access and read your feedback, check [here](https://www.notion.so/lambdaschool/How-to-View-Feedback-in-CodeGrade-c5147cee220c4044a25de28bcb6bb54a)
-* [ ] New commits will be evaluated by Codegrade if pushed before the sprint challenge deadline.
+* [x] Submit via Codegrade by commiting and pushing any new changes to **your main branch.**
+* [x] Check Codegrade before the deadline to compare its results against your local tests.
+* [x] Check Codegrade on the days following the Sprint Challenge for reviewer feedback. For more information on how to access and read your feedback, check [here](https://www.notion.so/lambdaschool/How-to-View-Feedback-in-CodeGrade-c5147cee220c4044a25de28bcb6bb54a)
+* [x] New commits will be evaluated by Codegrade if pushed before the sprint challenge deadline.
 
 ## Interview Questions
 
@@ -117,8 +117,19 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain what a token is used for.
 
+Tokens are used to grant specific users access to specific URls or components
+
 2. What steps can you take in your web apps to keep your data secure?
+
+Don't post the credentials to a valid token anywhere, even in console logs.
 
 3. Describe how web servers work.
 
+Servers transmit all kinds of messages (CRUD) to and from clients across the internet via packets and APIs.
+
 4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+C (Create): POST
+R (Read): GET
+U (Update): PUT
+D (Delete): DELETE
