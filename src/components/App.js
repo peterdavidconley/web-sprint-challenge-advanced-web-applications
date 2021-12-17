@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import styled from 'styled-components';
+import PrivateRoute from './PrivateRoute';
 
+// Components
 import Header from './Header';
 import BloomHeader from './BloomHeader';
 import Login from './Login';
-
 import View from './View';
 import Logout from './Logout'
 
@@ -17,12 +18,8 @@ const App = () => {
       <Header/>
       <RouteContainer>
         <Switch>
-        <Route exact path="/logout">
-          <Logout />
-        </Route>
-        <Route exact path="/view">
-          <View />
-        </Route>
+        <PrivateRoute exact path="/logout" component={Logout} />
+        <PrivateRoute exact path="/view" component={View} />
         <Route exact path="/login">
           <Login/>
         </Route>
