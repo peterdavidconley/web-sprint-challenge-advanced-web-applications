@@ -8,19 +8,20 @@ import MutationObserver from 'mutationobserver-shim';
 
 import Article from './Article';
 
+const article = {
+    headline: 'Here it is.',
+    author: "Peter Conley",
+    summary: 'Hello world',
+    body: 'This is the body',
+    createdOn: 'today',
+}
+
 test('renders component without errors', ()=> {
 
-    render(<Article />)
+    render(<Article article={article}/>)
 });
 
 test('renders headline, author from the article when passed in through props', ()=> {
-
-    const article = {
-        headline: 'Here it is.',
-        author: "Peter Conley",
-        summary: 'Hello world',
-        body: 'This is the body'
-    }
 
     // Arrange
 
@@ -57,13 +58,6 @@ test('renders headline, author from the article when passed in through props', (
 // });
 
 // test('executes handleDelete when the delete button is pressed', ()=> {
-
-    const article = {
-        headline: 'Here it is.',
-        author: "Peter Conley",
-        summary: 'Hello world',
-        body: 'This is the body'
-    }
 
     // Arrange
 
