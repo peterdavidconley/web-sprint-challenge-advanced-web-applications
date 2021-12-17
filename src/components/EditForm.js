@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 const initialArticle = {
     id:"",
@@ -14,14 +15,25 @@ const EditForm = (props)=> {
     const [article, setArticle]  = useState(initialArticle);
     const {handleEdit, handleEditCancel, editId} = props;
 
+    // This function
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/articles/:${editId}`)
+
+        axiosWithAuth()
+        .get(`/articles/:${editId}`)
         .then(resp => {
             console.log(resp)
         })
         .catch(err => {
             console.log(err)
         })
+
+        // axios.get(`http://localhost:5000/api/articles/:${editId}`)
+        // .then(resp => {
+        //     console.log(resp)
+        // })
+        // .catch(err => {
+        //     console.log(err)
+        // })
     }, [])
 
     const handleChange = (e)=> {

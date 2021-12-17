@@ -13,6 +13,8 @@ const View = (props) => {
     const deleteArticle = (article) => {
         setArticles(articles.filter( a => a.id !== article))
     }
+
+    // This function
    
     useEffect(() => {
 
@@ -38,14 +40,19 @@ const View = (props) => {
         })
     }
 
+    // here
     const handleEdit = (article) => {
-        axios.get(`http://localhost:5000/api/articles/:id`, article)
+
+        axiosWithAuth()
+        .get(`articles/:id`, article)
         .then(resp => {
-            console.log(resp)
+            //console.log(resp.config)
+            //
         })
         .catch(err => {
             console.log(err)
         })
+
     }
 
     const handleEditSelect = (id)=> {
