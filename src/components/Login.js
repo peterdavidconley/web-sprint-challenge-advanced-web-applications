@@ -27,8 +27,12 @@ const Login = (props) => {
         e.preventDefault();
         axios.post(`http://localhost:5000/api/login`, { username: 'Lambda', password: 'School' })
         .then(resp => {
-            console.log(resp)
-            //push('/view')
+            console.log(resp.data)
+            const { role, token, username } = resp.data
+            localStorage.setItem('role', role);
+            localStorage.setItem('token', token);
+            localStorage.setItem('username', username);
+            push('/view')
         })
         .catch(err => {
             console.log(err)
