@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-
+import axios from 'axios'
 import Article from './Article';
 import EditForm from './EditForm';
 
@@ -12,6 +12,19 @@ const View = (props) => {
     const deleteArticle = (del_article) => {
         setArticles(articles.filter( article => article.id !== del_article))
     }
+
+   
+    const fetchArticles = () => {
+        axios.get(`http://localhost:5000/api/articles`)
+        .then(resp => {
+            console.log(resp)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+    
+    //setArticles(articlesAPI);
 
     const handleDelete = (id) => {
         axios.delete(`http://localhost:5000/api/articles/:${id}`)
@@ -43,7 +56,10 @@ const View = (props) => {
     }
 
     return(<ComponentContainer>
-        <HeaderContainer>View Articles</HeaderContainer>
+        <HeaderContainer>
+            View Articles
+            <button onClick={fetchArticles}>Fetch</button>
+        </HeaderContainer>
         <ContentContainer flexDirection="row">
             <ArticleContainer>
                 {
