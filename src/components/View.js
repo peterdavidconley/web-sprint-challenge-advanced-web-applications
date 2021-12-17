@@ -9,7 +9,21 @@ const View = (props) => {
     const [editing, setEditing] = useState(false);
     const [editId, setEditId] = useState();
 
+    const deleteArticle = (del_article) => {
+        setArticles(articles.filter( article => article.id !== del_article))
+    }
+
+    console.log(articles)
+
     const handleDelete = (id) => {
+        axios.delete(`http://localhost:5000/api/articles/:${id}`)
+        .then(resp => {
+            console.log(resp)
+            deleteArticle(id)
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     const handleEdit = (article) => {
