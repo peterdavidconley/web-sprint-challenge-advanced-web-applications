@@ -29,10 +29,17 @@ test('renders headline, author from the article when passed in through props', (
 
     // Act
 
+    const headline = screen.queryByText(/Here it is./i)
+    const author = screen.queryByText(/Peter Conley/i)
+    const summary = screen.queryByText(/Hello world/i)
+    const body = screen.queryByText(/This is the body/i)
 
     // Assert
 
-
+    expect(headline).toBeInTheDocument();
+    expect(author).toBeInTheDocument();
+    expect(summary).toBeInTheDocument();
+    expect(body).toBeInTheDocument();
 
 });
 
@@ -45,15 +52,17 @@ test('renders headline, author from the article when passed in through props', (
         body: 'This is the body'
     }
 
-
     // Arrange
 
     render(<Article article={noAuthArticle}/>)
 
     // Act
 
+    const headline = screen.queryByText(/Associated Press/i);
 
     // Assert
+
+    expect(headline).toBeInTheDocument();
 
 // });
 
