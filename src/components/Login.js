@@ -30,7 +30,6 @@ const Login = (props) => {
         credentials
         )
         .then(resp => {
-            console.log(resp.data)
             const { role, token, username } = resp.data
             localStorage.setItem('role', role);
             localStorage.setItem('token', token);
@@ -54,6 +53,7 @@ const Login = (props) => {
                     <input 
                     type='text' 
                     placeholder='Enter a username'
+                    name='username'
                     id='username'
                     onChange={handleChange}
                     />
@@ -62,6 +62,7 @@ const Login = (props) => {
                     <input 
                     type='text' 
                     placeholder='Enter a password'
+                    name='password'
                     id='password'
                     onChange={handleChange}
                     />
