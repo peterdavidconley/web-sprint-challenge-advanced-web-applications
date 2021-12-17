@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 const initialCredentials = {
     username: '',
@@ -12,13 +13,18 @@ const Login = (props) => {
     
     const [ credentials, setCredentials ] = useState(initialCredentials)
     const [ error, setError ] = useState(initialError)
+    const { push } = useHistory(); 
 
     const handleChange = e => {
-
+        setCredentials({
+            ...credentials,
+            [e.target.name]: e.target.value
+        })
     }
 
     const handleSubmit = e => {
-
+        e.preventDefault();
+        //push('/view')
     }
 
     
@@ -33,6 +39,7 @@ const Login = (props) => {
                     type='text' 
                     placeholder='Enter a username'
                     id='username'
+                    onChange={handleChange}
                     />
                 </label>
                 <label>Password:
@@ -40,9 +47,10 @@ const Login = (props) => {
                     type='text' 
                     placeholder='Enter a password'
                     id='password'
+                    onChange={handleChange}
                     />
                 </label>
-                <button id='submit' >Submit</button>
+                <button id='submit'>Submit</button>
             </form>
         </ModalContainer>
     </ComponentContainer>);
