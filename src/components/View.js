@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios'
 import Article from './Article';
 import EditForm from './EditForm';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 const View = (props) => {
     const [articles, setArticles] = useState([]);
@@ -14,15 +15,17 @@ const View = (props) => {
     }
 
    
-    const fetchArticles = () => {
-        axios.get(`http://localhost:5000/api/articles`)
+    useEffect(() => {
+
+        axiosWithAuth()
+        .get(`/articles`)
         .then(resp => {
-            console.log(resp)
+            setArticles(resp.data)
         })
         .catch(err => {
             console.log(err)
         })
-    }
+    }, [])
     
     //setArticles(articlesAPI);
 
@@ -58,7 +61,6 @@ const View = (props) => {
     return(<ComponentContainer>
         <HeaderContainer>
             View Articles
-            <button onClick={fetchArticles}>Fetch</button>
         </HeaderContainer>
         <ContentContainer flexDirection="row">
             <ArticleContainer>
