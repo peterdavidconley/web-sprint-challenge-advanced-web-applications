@@ -6,9 +6,12 @@ const initialCredentials = {
     password: '',
 }
 
+const initialError = 'An error has occurred upon submission'
+
 const Login = (props) => {
     
     const [ credentials, setCredentials ] = useState(initialCredentials)
+    const [ error, setError ] = useState(initialError)
 
     const handleChange = e => {
 
@@ -23,7 +26,8 @@ const Login = (props) => {
         <ModalContainer>
             <h1>Welcome to Blogger Pro</h1>
             <h2>Please enter your account information.</h2>
-            <form id='submit'>
+            <p id='error'>{error}</p>
+            <form >
                 <label>Username:
                     <input 
                     type='text' 
@@ -38,6 +42,7 @@ const Login = (props) => {
                     id='password'
                     />
                 </label>
+                <button id='submit' >Submit</button>
             </form>
         </ModalContainer>
     </ComponentContainer>);
