@@ -23,7 +23,7 @@ const Login = (props) => {
         <ModalContainer>
             <h1>Welcome to Blogger Pro</h1>
             <h2>Please enter your account information.</h2>
-            <form>
+            <form id='submit'>
                 <label>Username:
                     <input 
                     type='text' 
