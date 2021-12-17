@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios'
 
 const initialCredentials = {
     username: '',
@@ -24,7 +25,15 @@ const Login = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        //push('/view')
+        axios.post(`http://localhost:5000/api/login`, { username: 'Lambda', password: 'School' })
+        .then(resp => {
+            console.log(resp)
+            //push('/view')
+        })
+        .catch(err => {
+            console.log(err)
+        })
+        
     }
 
     
@@ -33,7 +42,7 @@ const Login = (props) => {
             <h1>Welcome to Blogger Pro</h1>
             <h2>Please enter your account information.</h2>
             <p id='error'>{error}</p>
-            <form >
+            <form onSubmit={handleSubmit}>
                 <label>Username:
                     <input 
                     type='text' 
