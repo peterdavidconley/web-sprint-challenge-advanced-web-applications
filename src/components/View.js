@@ -10,10 +10,9 @@ const View = (props) => {
     const [editing, setEditing] = useState(false);
     const [editId, setEditId] = useState();
 
-    const deleteArticle = (del_article) => {
-        setArticles(articles.filter( article => article.id !== del_article))
+    const deleteArticle = (article) => {
+        setArticles(articles.filter( a => a.id !== article))
     }
-
    
     useEffect(() => {
 
@@ -27,10 +26,10 @@ const View = (props) => {
         })
     }, [])
     
-    //setArticles(articlesAPI);
-
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5000/api/articles/:${id}`)
+
+        axiosWithAuth()
+        .delete(`/articles/:${id}`)
         .then(resp => {
             deleteArticle(id)
         })

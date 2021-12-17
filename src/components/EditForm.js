@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -14,7 +14,7 @@ const EditForm = (props)=> {
     const [article, setArticle]  = useState(initialArticle);
     const {handleEdit, handleEditCancel, editId} = props;
 
-    componentDidMount(
+    useEffect(() => {
         axios.get(`http://localhost:5000/api/articles/:${editId}`)
         .then(resp => {
             console.log(resp)
@@ -22,7 +22,7 @@ const EditForm = (props)=> {
         .catch(err => {
             console.log(err)
         })
-    )
+    }, [])
 
     const handleChange = (e)=> {
         setArticle({
