@@ -1,5 +1,5 @@
-import React from 'react';
-import { Route } from "react-router-dom";
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import styled from 'styled-components';
 
 import Header from './Header';
@@ -8,6 +8,7 @@ import Login from './Login';
 
 const App = () => {
   return (
+    <Router>
     <AppContainer>
       <BloomHeader/>
       <Header/>
@@ -17,6 +18,7 @@ const App = () => {
         </Route>          
       </RouteContainer>
     </AppContainer>
+    </Router>
   )
 }
 
